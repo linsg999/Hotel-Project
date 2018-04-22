@@ -22,9 +22,7 @@ namespace main
         public IdReco()
         {
             InitializeComponent();
-        }
-
-       
+        }       
 
         private void homeBtn_Click(object sender, RoutedEventArgs e)//回到首页
         {

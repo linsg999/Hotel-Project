@@ -32,7 +32,7 @@
             <!--右侧区域-->
             <Image Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="img/右广告图.jpg"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="UniformToFill" />
             <Grid Grid.Column="1"  Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" >
-                <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100 0 ">
+                <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-100 0 ">
                     <Button Name="checkBtn"  HorizontalAlignment="Left"  Margin="40 -40 -100 40" Click="checkBtn_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="{x:Type Button}">
@@ -41,14 +41,14 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="img" Property="Source" Value="img/入住办理（点击）.png">
+                                        <Setter TargetName="img" Property="Source" Value="img/入住办理（点击）.png" >
                                         </Setter>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
-                    <Button Name="codeBtn" HorizontalAlignment="Left"  Margin="-100 0 ">
+                    <Button Name="codeBtn" HorizontalAlignment="Left"  Margin="-100 0 "  Click="codeBtn_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="{x:Type Button}">
                                 <Border>
