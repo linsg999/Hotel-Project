@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace main
 {
@@ -20,15 +21,29 @@ namespace main
     public partial class FaceReco : Window
     {
         public string username;
+        private DispatcherTimer dateTimer;//获取系统时间的定时器
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dateTimer = new DispatcherTimer();
+            dateTimer.Interval = new TimeSpan(0, 0, 0, 1);
+            dateTimer.Tick += new EventHandler(showTime);
+            dateTimer.Start();
+        }
+
+        //实时显示时间
+        private void showTime(object sender, EventArgs e)
+        {
+            weekDayLb.Content = DateTime.Now.ToString("ddd");
+            timeLb.Content = DateTime.Now.ToString("HH:mm");
+            dateLb.Content = DateTime.Now.ToString("yyyy/MM/dd");
+        }
         public FaceReco()
         {
             InitializeComponent();
-        }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
             username = "尊敬的xx先生";
             nameText.Content = username;
         }
+     
         private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
         {
             ((MediaElement)sender).Position = ((MediaElement)sender).Position.Add(TimeSpan.FromMilliseconds(1));

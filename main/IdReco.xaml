@@ -25,9 +25,9 @@
                             </Path.Data>
                         </Path>
                     </Canvas>
-                    <Label  VerticalAlignment="Top" HorizontalAlignment="Left" Margin=" 10 20"  Foreground="White" Content="星期二 " FontSize="22"></Label>
-                    <Label  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 20" Foreground="White" Content="19: 00 " FontSize="22"></Label>
-                    <Label  VerticalAlignment="Bottom"  HorizontalAlignment="Left" Foreground="White" Margin="-190 20 " Content="2018/04/01 " FontSize="22"></Label>
+                    <Label x:Name="weekDayLb" VerticalAlignment="Top" HorizontalAlignment="Left" Margin=" 10 20"  Foreground="White" FontSize="22"></Label>
+                    <Label x:Name="timeLb" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 20" Foreground="White" FontSize="22"></Label>
+                    <Label x:Name="dateLb" VerticalAlignment="Bottom"  HorizontalAlignment="Left"  Foreground="White" Margin="-150 20 " FontSize="22"></Label>
                 </StackPanel>
             </Grid>
             <!--中间区域-->           
@@ -71,6 +71,10 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0,0,20,20">
+                    <Label Content="倒计时:" Foreground="White" FontSize="22"></Label>
+                    <Label x:Name="countDownLb" Foreground="White" FontSize="22"></Label>
                 </StackPanel>
             </Grid>
         </Grid>
