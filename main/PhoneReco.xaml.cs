@@ -61,6 +61,7 @@ namespace main
       
         private void homeBtn_Click(object sender, RoutedEventArgs e)//回到首页
         {
+            disTimer.Stop();
             var newWindow = new MainWindow();
             newWindow.Show();
             this.Close();

@@ -34,12 +34,14 @@ namespace main
   
         private void homeBtn_Click(object sender, RoutedEventArgs e)//回到首页
         {
+            disTimer.Stop();
             var newWindow = new MainWindow();
             newWindow.Show();
             this.Close();
         }
         private void idBtn_Click(object sender, RoutedEventArgs e)//未携带身份证
         {
+            disTimer.Stop();
             var newWindow = new PhoneReco();
             newWindow.Show();
             this.Close();
