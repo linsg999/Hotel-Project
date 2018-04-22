@@ -19,6 +19,17 @@ namespace main
     /// </summary>
     public partial class IdReco : Window
     {
+        //定义跳转变量 当变量参数=某个信号时（可以为true），跳转到Verify.xaml，订单查询中。
+        public bool goVerify = false;
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (goVerify == true)
+            {
+                var newWindow = new Verify();
+                newWindow.Show();
+                this.Close();
+            }
+        }  
         public IdReco()
         {
             InitializeComponent();
@@ -30,18 +41,12 @@ namespace main
             newWindow.Show();
             this.Close();
         }
-        //播放gif动图
-        private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
-        {
-            ((MediaElement)sender).Position = ((MediaElement)sender).Position.Add(TimeSpan.FromMilliseconds(1));
-        }
-
         private void idBtn_Click(object sender, RoutedEventArgs e)//未携带身份证
         {
             var newWindow = new PhoneReco();
             newWindow.Show();
             this.Close();
-        }  
+        }       
 
     }
 }

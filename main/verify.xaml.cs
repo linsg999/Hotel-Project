@@ -20,6 +20,12 @@ namespace main
     /// </summary>
     public partial class Verify : Window
     {
+        public Int64 user;
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            user = 111111111111111111;
+            userMsg.Content = user;
+        }  
         public Verify()
         {
             InitializeComponent();
@@ -33,6 +39,6 @@ namespace main
         private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)//gif动图
         {
             ((MediaElement)sender).Position = ((MediaElement)sender).Position.Add(TimeSpan.FromMilliseconds(1));
-        }  
+        }
     }
 }

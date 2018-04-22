@@ -19,9 +19,15 @@ namespace main
     /// </summary>
     public partial class FaceReco : Window
     {
+        public string username;
         public FaceReco()
         {
             InitializeComponent();
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            username = "尊敬的xx先生";
+            nameText.Content = username;
         }
         private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
         {
@@ -33,5 +39,7 @@ namespace main
             newWindow.Show();
             this.Close();
         }
+
+     
     }
 }

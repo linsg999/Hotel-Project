@@ -32,39 +32,37 @@ namespace main
                 this.WindowStyle = System.Windows.WindowStyle.SingleBorderWindow;
                 this.Close();
             }
-        }  
-
+        }
+      
         private void homeBtn_Click(object sender, RoutedEventArgs e)//回到首页
         {
             var newWindow = new MainWindow();
             newWindow.Show();
             this.Close();
         }
-        private void phoneText_Enter(object sender, EventArgs e)//用户名文本框焦点获得事件
-        {
-            if (phoneText.Text == "请输入您的手机号")
-            {
-                phoneText.Text = "";
-            }
-        }
-
       
-        private void codeText_Enter(object sender, EventArgs e) //密码框焦点获得
-        {
-            if (codeText.Text == "请输入验证码")
-            {
-                codeText.Text = "";
-            }
-        }
-
+      
+    
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            phoneText.Text = "请输入您的手机号";
+    
         }
 
         private void retrySendBtn_Click(object sender, RoutedEventArgs e)
         {
-            codeText.Text = "请输入验证码";
+    
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            phoneText.Focus();
+            psdLabel.Visibility = Visibility.Hidden;
+            psdText.Visibility = Visibility.Hidden;
+            psdBlock.Visibility = Visibility.Hidden;
+            retrySendBtn.Visibility = Visibility.Hidden;
+
+
+        }
+     
     }
 }
