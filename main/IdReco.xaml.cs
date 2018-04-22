@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace main
 {
@@ -19,12 +20,14 @@ namespace main
     /// </summary>
     public partial class IdReco : Window
     {
+        private int countSecond = 10;//倒计时
+        private DispatcherTimer disTimer;//定时器
         public IdReco()
         {
             InitializeComponent();
         }
 
-       
+
 
         private void homeBtn_Click(object sender, RoutedEventArgs e)//回到首页
         {
@@ -43,7 +46,42 @@ namespace main
             var newWindow = new PhoneReco();
             newWindow.Show();
             this.Close();
-        }  
+        }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            disTimer = new DispatcherTimer();
+            disTimer.Interval = new TimeSpan(0, 0, 0, 1);
+            disTimer.Tick += new EventHandler(disTimer_Tick);
+            disTimer.Start();
+        }
+        //倒计时
+        void disTimer_Tick(object sender, EventArgs e)
+        {
+
+            if (countSecond == 0)
+            {
+                disTimer.Stop();
+                var newWindow = new MainWindow();
+                newWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                //判断lblSecond是否处于UI线程上
+                if (countDownLb.Dispatcher.CheckAccess())
+                {
+                    countDownLb.Content = countSecond.ToString();
+                }
+                else
+                {
+                    countDownLb.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (Action)(() =>
+                    {
+                        countDownLb.Content = countSecond.ToString();
+                    }));
+                }
+                countSecond--;
+            }
+        }
     }
 }
