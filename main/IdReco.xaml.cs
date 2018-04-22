@@ -27,8 +27,7 @@ namespace main
             InitializeComponent();
         }
 
-
-
+  
         private void homeBtn_Click(object sender, RoutedEventArgs e)//回到首页
         {
             var newWindow = new MainWindow();

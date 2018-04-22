@@ -25,6 +25,7 @@ namespace main
             {
                 MessageBox.Show("程序已经在运行！", "提示");
                 this.Shutdown();
+                //测试
             }
         }
     }  

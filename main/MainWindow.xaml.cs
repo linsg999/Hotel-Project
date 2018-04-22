@@ -31,7 +31,13 @@ namespace main
             newWindow.Show();
             this.Close();
         }
-
+        //扫码入住的事件
+        private void codeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new IdReco();
+            newWindow.Show();
+            this.Close();
+        }
    
     }
 }
