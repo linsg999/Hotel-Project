@@ -33,7 +33,7 @@ namespace main
             InitializeComponent();
         }
 
-        private void checkBtn_Click(object sender, RoutedEventArgs e)//入房办理
+        private void checkBtn_Click(object sender, RoutedEventArgs e)//入住办理
         {
             var newWindow = new IdReco();
             newWindow.Show();
