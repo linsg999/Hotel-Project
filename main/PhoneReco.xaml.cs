@@ -45,7 +45,7 @@ namespace main
         public PhoneReco()
         {
             InitializeComponent();
-            phoneText.Focus();
+            phoneText.Focus();         
             msg.Visibility = Visibility.Hidden;
             psdLabel.Visibility = Visibility.Hidden;
             psdText.Visibility = Visibility.Hidden;
@@ -65,7 +65,6 @@ namespace main
 
         private void homeBtn_Click(object sender, RoutedEventArgs e)//回到首页
         {
-            disTimer.Stop();
             var newWindow = new MainWindow();
             newWindow.Show();
             this.Close();
@@ -77,6 +76,7 @@ namespace main
         {
             phoneNumLb.Text = "请输入手机号";
             phoneNum = "";
+            phoneText.Text = phoneNum;
             phoneText.IsReadOnly = false;
             phoneText.Focus();
             msg.Visibility = Visibility.Hidden;
@@ -133,37 +133,65 @@ namespace main
         {
             countSecond = initTime;
             string buttonName = ((Button)e.OriginalSource).Name;
-            if (buttonName.Equals("clearBtn"))
+            if (phoneText.IsFocused)
             {
-                phoneNum = "";
-            }
-            else if (buttonName.Equals("backBtn"))
-            {
-                if (phoneNum.Equals(""))
-                    return;
-                phoneNum = phoneNum.Substring(0, phoneNum.Length - 1);
-            }
-            else 
-            {
-                string num = buttonName.Substring(buttonName.Length - 1, 1);
-                phoneNum = phoneNum + num;
-            }
+                if (buttonName.Equals("clearBtn"))
+                {
+                    phoneNum = "";
+                }
+                else if (buttonName.Equals("backBtn"))
+                {
+                    if (phoneNum.Equals(""))
+                        return;
+                    phoneNum = phoneNum.Substring(0, phoneNum.Length - 1);
+                }
+                else if(phoneNum.Length<11)
+                {
+                    string num = buttonName.Substring(buttonName.Length - 1, 1);
+                    phoneNum = phoneNum + num;
+                }
                 this.phoneNumLb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff"));
-                phoneNumLb.Text = phoneNum;
-            //判断手机号是否为11位 输入验证码
-            if (phoneNum.Length == 11)
-            {
-                psdBlock.Focus();
-                psdText.Focus();
-                phoneText.IsReadOnly = true;
-                msg.Visibility = Visibility.Visible;
-                psdLabel.Visibility = Visibility.Visible;
-                psdText.Visibility = Visibility.Visible;
-                psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
-                psdBlock.Visibility = Visibility.Visible;
-                retrySendBtn.Visibility = Visibility.Visible;
+                phoneText.Text = phoneNum;
+                phoneText.SelectionStart = phoneText.Text.Length;
+                //判断手机号是否为11位 输入验证码
+                if (phoneNum.Length == 11)
+                {
+                    if (phoneNum.Substring(1, 1).Equals("2"))
+                        return;
+                    psdBlock.Focus();
+                    phoneText.IsReadOnly = true;
+                    msg.Visibility = Visibility.Visible;
+                    psdLabel.Visibility = Visibility.Visible;
+                    psdText.Visibility = Visibility.Visible;
+                    psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
+                    psdBlock.Visibility = Visibility.Visible;
+                    retrySendBtn.Visibility = Visibility.Visible;
+                    psdText.Focus();
+                }
             }
-            
+            else if (psdText.IsFocused)
+            {
+                psdBlock.Text = "";
+                if (buttonName.Equals("clearBtn"))
+                {
+                    VerifiCode = "";
+                }
+                else if (buttonName.Equals("backBtn"))
+                {
+                    if (VerifiCode.Equals(""))
+                        return;
+                    VerifiCode = VerifiCode.Substring(0, VerifiCode.Length - 1);
+                }
+                else
+                {
+                    string num = buttonName.Substring(buttonName.Length - 1, 1);
+                    VerifiCode = VerifiCode + num;
+                }
+                this.psdText.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff"));
+                psdText.Text = VerifiCode;
+                psdText.SelectionStart = psdText.Text.Length;
+            }
+
         }
 
 
@@ -171,6 +199,11 @@ namespace main
         private void refreshTimer(object sender, RoutedEventArgs e)
         {
             countSecond = initTime;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            disTimer.Stop();
         }
     }
 }
