@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,10 +24,14 @@ namespace main
     public partial class MainWindow : Window
     {
         private DispatcherTimer dateTimer;//获取系统时间的定时器
+        private DispatcherTimer ggTimer;//广告定时器
+        private int ggInterval = 5;//广告轮播时间
+        private int index = 0;//轮播的index
+        private string ggFolder = "../../MainWindow_img/";
         public MainWindow()
         {
             InitializeComponent();
-        }    
+        }
 
         private void checkBtn_Click(object sender, RoutedEventArgs e)//入房办理
         {
@@ -47,6 +53,26 @@ namespace main
             dateTimer.Interval = new TimeSpan(0, 0, 0, 1);
             dateTimer.Tick += new EventHandler(showTime);
             dateTimer.Start();
+            ggTimer = new DispatcherTimer();
+            ggTimer.Interval = new TimeSpan(0, 0, 0, ggInterval);
+            ggTimer.Tick += new EventHandler(showGg);
+            ggTimer.Start();
+        }
+        //轮播广告
+        private void showGg(object sender, EventArgs e)
+        {
+            ArrayList imgList = new ArrayList();
+            DirectoryInfo folder = new DirectoryInfo(ggFolder);
+            //遍历文件
+            foreach (FileInfo NextFile in folder.GetFiles())
+                imgList.Add(NextFile.Name);
+
+            if (index == imgList.Count)
+                index = 0;
+            string imgPath = folder.FullName + imgList[index];
+            ggImg.Source = new BitmapImage(new Uri(imgPath, UriKind.Absolute));
+            index++;
+
         }
 
         //实时显示时间
@@ -55,6 +81,12 @@ namespace main
             weekDayLb.Content = DateTime.Now.ToString("ddd");
             timeLb.Content = DateTime.Now.ToString("HH:mm");
             dateLb.Content = DateTime.Now.ToString("yyyy/MM/dd");
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            dateTimer.Stop();
+            ggTimer.Stop();
         }
     }
 }
