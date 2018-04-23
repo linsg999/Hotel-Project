@@ -32,7 +32,7 @@
             <!--中间区域-->
             <Image Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Source="img/背景.png"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="UniformToFill"  />
             <Grid Grid.Column="1"  Grid.Row="0" Grid.RowSpan="2">
-                <StackPanel ButtonBase.Click="refreshTimer"  Orientation="Vertical" HorizontalAlignment="Center" Margin="100 0"  VerticalAlignment="Center">
+                <StackPanel ButtonBase.Click="button_Clicked"  Orientation="Vertical" HorizontalAlignment="Center" Margin="100 0"  VerticalAlignment="Center">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
@@ -51,7 +51,7 @@
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 " Foreground="White"  FontSize="36" FontWeight="Bold" Content="手机号码"  />
                         <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Width="768"  VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="phoneText" Margin="10 10" Foreground="White" FontSize="36" CaretBrush="White" Background="Transparent"  GotMouseCapture="refreshTimer"/>
-                        <TextBlock IsHitTestVisible="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="请输入手机号码" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="DarkGray" FontSize="36">
+                        <TextBlock x:Name="phoneNumLb" IsHitTestVisible="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="请输入手机号码" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="DarkGray" FontSize="36">
                             <TextBlock.Style>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -315,8 +315,8 @@
                     </Button>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0,0,20,20">
-                    <Label Content="倒计时:" Foreground="White" FontSize="22"></Label>
-                    <Label x:Name="countDownLb" Foreground="White" FontSize="22"></Label>
+                    <Label Content="倒计时:" Foreground="White" FontSize="28"></Label>
+                    <Label x:Name="countDownLb" Foreground="White" FontSize="28"></Label>
                 </StackPanel>
             </Grid>
         </Grid>

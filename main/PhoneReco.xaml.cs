@@ -20,10 +20,12 @@ namespace main
     /// </summary>
     public partial class PhoneReco : Window
     {
-         private static int initTime=120;//倒计时初始时间
+        private static int initTime = 120;//倒计时初始时间
         private int countSecond = initTime;//倒计时时间
         private DispatcherTimer disTimer;//定时器
         private DispatcherTimer dateTimer;//获取系统时间的定时器
+        private string phoneNum = "";
+        private string VerifiCode = "";
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dateTimer = new DispatcherTimer();
@@ -58,7 +60,7 @@ namespace main
                 this.Close();
             }
         }
-      
+
         private void homeBtn_Click(object sender, RoutedEventArgs e)//回到首页
         {
             disTimer.Stop();
@@ -66,20 +68,20 @@ namespace main
             newWindow.Show();
             this.Close();
         }
-      
-      
-    
+
+
+
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-    
+
         }
 
         private void retrySendBtn_Click(object sender, RoutedEventArgs e)
         {
-    
+
         }
 
-         private void Viewbox_Loaded(object sender, RoutedEventArgs e)
+        private void Viewbox_Loaded(object sender, RoutedEventArgs e)
         {
             disTimer = new DispatcherTimer();
             disTimer.Interval = new TimeSpan(0, 0, 0, 1);
@@ -92,8 +94,8 @@ namespace main
 
             if (countSecond == 0)
             {
-               disTimer.Stop();
-              var newWindow = new MainWindow();
+                disTimer.Stop();
+                var newWindow = new MainWindow();
                 newWindow.Show();
                 this.Close();
             }
@@ -103,7 +105,7 @@ namespace main
                 if (countDownLb.Dispatcher.CheckAccess())
                 {
                     countDownLb.Content = countSecond.ToString();
-               }
+                }
                 else
                 {
                     countDownLb.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (Action)(() =>
@@ -114,12 +116,32 @@ namespace main
                 countSecond--;
             }
         }
-
+        //键盘点击
+        private void button_Clicked(object sender, RoutedEventArgs e)
+        {
+            countSecond = initTime;
+            string buttonName = ((Button)e.OriginalSource).Name;
+            if (buttonName.Equals("clearBtn"))
+            {
+                phoneNum = "";
+            }
+            else if (buttonName.Equals("backBtn"))
+            {
+                if (phoneNum.Equals(""))
+                    return;
+                phoneNum = phoneNum.Substring(0, phoneNum.Length - 1);
+            }
+            else
+            {
+                string num = buttonName.Substring(buttonName.Length - 1, 1);
+                phoneNum = phoneNum + num;
+            }
+            phoneNumLb.Text = phoneNum;
+        }
         //重置时间
         private void refreshTimer(object sender, RoutedEventArgs e)
         {
             countSecond = initTime;
         }
-     }
- }
-     
+    }
+}
