@@ -26,6 +26,7 @@ namespace main
         private DispatcherTimer dateTimer;//获取系统时间的定时器
         private string phoneNum = "";
         private string VerifiCode = "";
+        private int psdMsg = 01;//验证码编号
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dateTimer = new DispatcherTimer();
@@ -45,6 +46,7 @@ namespace main
         {
             InitializeComponent();
             phoneText.Focus();
+            msg.Visibility = Visibility.Hidden;
             psdLabel.Visibility = Visibility.Hidden;
             psdText.Visibility = Visibility.Hidden;
             psdBlock.Visibility = Visibility.Hidden;
@@ -70,14 +72,24 @@ namespace main
         }
 
 
-
+        //点击修改号码 恢复到默认
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            phoneNumLb.Text = "请输入手机号";
+            phoneNum = "";
+            phoneText.IsReadOnly = false;
+            phoneText.Focus();
+            msg.Visibility = Visibility.Hidden;
+            psdLabel.Visibility = Visibility.Hidden;
+            psdText.Visibility = Visibility.Hidden;
+            psdBlock.Visibility = Visibility.Hidden;
+            retrySendBtn.Visibility = Visibility.Hidden;
         }
-
+        //点击重新发送
         private void retrySendBtn_Click(object sender, RoutedEventArgs e)
         {
+            psdText.Text = "";//清空验证码
+            psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
 
         }
 
@@ -131,13 +143,30 @@ namespace main
                     return;
                 phoneNum = phoneNum.Substring(0, phoneNum.Length - 1);
             }
-            else
+            else 
             {
                 string num = buttonName.Substring(buttonName.Length - 1, 1);
                 phoneNum = phoneNum + num;
             }
-            phoneNumLb.Text = phoneNum;
+                this.phoneNumLb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff"));
+                phoneNumLb.Text = phoneNum;
+            //判断手机号是否为11位 输入验证码
+            if (phoneNum.Length == 11)
+            {
+                psdBlock.Focus();
+                psdText.Focus();
+                phoneText.IsReadOnly = true;
+                msg.Visibility = Visibility.Visible;
+                psdLabel.Visibility = Visibility.Visible;
+                psdText.Visibility = Visibility.Visible;
+                psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
+                psdBlock.Visibility = Visibility.Visible;
+                retrySendBtn.Visibility = Visibility.Visible;
+            }
+            
         }
+
+
         //重置时间
         private void refreshTimer(object sender, RoutedEventArgs e)
         {
