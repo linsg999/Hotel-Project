@@ -4,7 +4,7 @@
     <Viewbox Stretch="Fill">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="560" />
                 <ColumnDefinition Width="5*" />
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>

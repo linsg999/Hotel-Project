@@ -4,7 +4,7 @@
     <Viewbox x:Name="click" Stretch="Fill" Loaded="Viewbox_Loaded" MouseLeftButtonDown="refreshTimer" >
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="560" />
                 <ColumnDefinition Width="5*" />
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
@@ -13,7 +13,7 @@
                 <RowDefinition Height="8*" />
             </Grid.RowDefinitions>
             <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="img/背景.png"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="UniformToFill"  />
-            <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Stretch="Fill" Source="img/左广告图.jpg" />
+            <Image x:Name="ggImg" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Stretch="Fill" Source="img/左广告图.jpg" />
             <Grid Grid.Column="0" Grid.Row="0">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 30">
                     <Image  VerticalAlignment="Top" Margin="30 30 " Source="img/logo.png" Stretch="Fill"/>
@@ -50,7 +50,7 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 " Foreground="White"  FontSize="40" FontWeight="Bold" Content="手机号码"  />
-                        <Label x:Name="msg" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 10 " Foreground="White"  FontSize="32" Content="验证码已发送!" Visibility="Hidden"/>
+                        <Label x:Name="msg" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 10 " Foreground="White"  FontSize="32" Content="" Visibility="Hidden"/>
                         <TextBox  x:Name="phoneText" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Width="768"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 10" Foreground="White" FontSize="40" FontWeight="Bold" CaretBrush="White" Background="Transparent"  GotMouseCapture="refreshTimer" MaxLength="11"/>
                         <TextBlock x:Name="phoneNumLb" IsHitTestVisible="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="请输入手机号" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="#bfbebe"  FontSize="40" FontWeight="Bold">
                             <TextBlock.Style>

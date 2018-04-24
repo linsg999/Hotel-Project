@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +12,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-
 namespace main
 {
     /// <summary>
@@ -27,12 +29,39 @@ namespace main
         private string phoneNum = "";
         private string VerifiCode = "";
         private int psdMsg = 01;//验证码编号
+        private string message = "";//提示信息
+
+        private DispatcherTimer ggTimer;//广告定时器
+        private int ggInterval = 5;//广告轮播时间
+        private int index = 0;//轮播的index
+        private string ggFolder = "../../MainWindow_img/";
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dateTimer = new DispatcherTimer();
             dateTimer.Interval = new TimeSpan(0, 0, 0, 1);
             dateTimer.Tick += new EventHandler(showTime);
             dateTimer.Start();
+
+            ggTimer = new DispatcherTimer();
+            ggTimer.Interval = new TimeSpan(0, 0, 0, ggInterval);
+            ggTimer.Tick += new EventHandler(showGg);
+            ggTimer.Start();
+        }
+        //轮播广告
+        private void showGg(object sender, EventArgs e)
+        {
+            ArrayList imgList = new ArrayList();
+            DirectoryInfo folder = new DirectoryInfo(ggFolder);
+            //遍历文件
+            foreach (FileInfo NextFile in folder.GetFiles())
+                imgList.Add(NextFile.Name);
+
+            if (index == imgList.Count)
+                index = 0;
+
+            string imgPath = folder.FullName + imgList[index];
+            ggImg.Source = new BitmapImage(new Uri(imgPath, UriKind.Absolute));
+            index++;
         }
 
         //实时显示时间
@@ -87,9 +116,13 @@ namespace main
         }
         //点击重新发送
         private void retrySendBtn_Click(object sender, RoutedEventArgs e)
-        {
-            psdText.Text = "";//清空验证码
+        {          
             psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
+            VerifiCode = "";
+            psdText.Text = VerifiCode;
+            phoneText.IsReadOnly = false;
+            psdBlock.Focus();
+            psdText.Focus();
 
         }
 
@@ -157,9 +190,16 @@ namespace main
                 if (phoneNum.Length == 11)
                 {
                     if (phoneNum.Substring(1, 1).Equals("2"))
+                    {
+                        message = "请输入有效的手机号码！";
+                        msg.Content = message;
+                        msg.Visibility = Visibility.Visible;
                         return;
+                    }
                     psdBlock.Focus();
                     phoneText.IsReadOnly = true;
+                    message = "请输入验证码";
+                    msg.Content = message;
                     msg.Visibility = Visibility.Visible;
                     psdLabel.Visibility = Visibility.Visible;
                     psdText.Visibility = Visibility.Visible;
@@ -204,6 +244,8 @@ namespace main
         private void Window_Closed(object sender, EventArgs e)
         {
             disTimer.Stop();
+           ggTimer.Stop();
         }
+       
     }
 }
