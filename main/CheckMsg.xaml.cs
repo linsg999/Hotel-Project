@@ -32,7 +32,7 @@ namespace main
         private DispatcherTimer ggTimer;//广告定时器
         private int ggInterval = 5;//广告轮播时间
         private int index = 0;//轮播的index
-        private string ggFolder = "../../MainWindow_img/";
+        private string ggFolder = "../../CheckMsg_img/";
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dateTimer = new DispatcherTimer();

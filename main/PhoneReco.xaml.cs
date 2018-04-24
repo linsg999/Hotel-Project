@@ -34,7 +34,7 @@ namespace main
         private DispatcherTimer ggTimer;//广告定时器
         private int ggInterval = 5;//广告轮播时间
         private int index = 0;//轮播的index
-        private string ggFolder = "../../MainWindow_img/";
+        private string ggFolder = "../../PhoneReco_img/";
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dateTimer = new DispatcherTimer();
@@ -108,6 +108,7 @@ namespace main
             phoneText.Text = phoneNum;
             phoneText.IsReadOnly = false;
             phoneText.Focus();
+    
             msg.Visibility = Visibility.Hidden;
             psdLabel.Visibility = Visibility.Hidden;
             psdText.Visibility = Visibility.Hidden;

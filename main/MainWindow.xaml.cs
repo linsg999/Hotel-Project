@@ -88,5 +88,27 @@ namespace main
             dateTimer.Stop();
             ggTimer.Stop();
         }
+
+        private void checkBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            checkBtn.Style = checkBtn2.Style;
+        }
+       
+        private void checkBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            checkBtn.Style = checkBtn.Style;
+        }
+
+        private void codeBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            codeBtn.Style = codeBtn2.Style;
+        }
+
+        private void codeBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            codeBtn.Style = codeBtn2.Style;
+        }
+
+       
     }
 }
