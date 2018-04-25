@@ -50,9 +50,10 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 " Foreground="White"  FontSize="40" FontWeight="Bold" Content="手机号码"  />
-                        <Label x:Name="msg" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 10 " Foreground="White"  FontSize="32" Content="" Visibility="Hidden"/>
-                        <TextBox  x:Name="phoneText" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Height="100" Width="768"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 10" Foreground="White" FontSize="48" FontWeight="Bold" CaretBrush="White" Background="Transparent" BorderBrush="#99FFFFFF" GotMouseCapture="refreshTimer" MaxLength="11" SelectionBrush="#CCFFFFFF"/>
-                        <TextBlock x:Name="phoneNumLb" IsHitTestVisible="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="请输入手机号" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="#bfbebe"  FontSize="48" FontWeight="Bold"    >
+
+                        <Label x:Name="msg" Grid.Row="0"  Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 10 " Foreground="White"  FontSize="32" Visibility="Hidden" />
+                        <TextBox  x:Name="phoneText" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Width="768"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 10" Foreground="White" FontSize="68" FontWeight="Bold" CaretBrush="White" Background="Transparent" BorderBrush="#99FFFFFF" GotMouseCapture="refreshTimer" MaxLength="11" SelectionBrush="#CCFFFFFF"/>
+                        <TextBlock x:Name="phoneNumLb" IsHitTestVisible="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Text="请输入手机号" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="#bfbebe"  FontSize="48" FontWeight="Bold"    >
                             <TextBlock.Style>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -66,7 +67,7 @@
                         </TextBlock>
 
                         <Label x:Name="psdLabel" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 " Foreground="White"  FontSize="40" FontWeight="Bold" Content="验证码"  />
-                        <TextBox x:Name="psdText" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Height="100" Width="768"  VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="10,10,0,10" Foreground="White" FontSize="48" FontWeight="Bold" CaretBrush="White" Background="Transparent" BorderBrush="#99FFFFFF" GotMouseCapture="refreshTimer" SelectionBrush="#CCFFFFFF"/>
+                        <TextBox x:Name="psdText" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Width="768"  VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="10,10,0,10" Foreground="White" FontSize="68" FontWeight="Bold" CaretBrush="White" Background="Transparent" BorderBrush="#99FFFFFF" GotMouseCapture="refreshTimer" SelectionBrush="#CCFFFFFF"/>
                         <TextBlock x:Name="psdBlock" IsHitTestVisible="False" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Text="" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="#bfbebe" FontSize="48" FontWeight="Bold">
                             <TextBlock.Style>
                                 <Style TargetType="{x:Type TextBlock}">
@@ -269,7 +270,7 @@
             <!--右侧区域-->
             <Grid  Grid.Column="2" Grid.RowSpan="2">
                 <StackPanel ButtonBase.Click="refreshTimer" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 30">
-                    <Button Name="editBtn" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10" Click="editBtn_Click">
+                    <Button Name="editBtn" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10" Click="editBtn_Click" Visibility="Collapsed">
                         <Button.Template>
                             <ControlTemplate TargetType="{x:Type Button}">
                                 <Border>
@@ -284,7 +285,7 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
-                    <Button Name="retrySendBtn" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10" Click="retrySendBtn_Click">      
+                    <Button Name="retrySendBtn" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10" Click="retrySendBtn_Click" Visibility="Collapsed">      
                         <Button.Template>
                             <ControlTemplate TargetType="{x:Type Button}">
                                 <Border>
@@ -300,7 +301,7 @@
                         </Button.Template>
                     </Button>
                     <Label x:Name="time" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-130,0,10"  Foreground="White" FontSize="28"  Panel.ZIndex="2" ></Label>
-                       
+                         
                     <Button Name="homeBtn" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10 " Click="homeBtn_Click" >
                         <Button.Template>
                             <ControlTemplate TargetType="{x:Type Button}">

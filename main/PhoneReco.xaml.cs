@@ -80,12 +80,13 @@ namespace main
         public PhoneReco()
         {
             InitializeComponent();
-            phoneText.Focus();         
+            phoneText.Focus();    
             msg.Visibility = Visibility.Hidden;
             psdLabel.Visibility = Visibility.Hidden;
             psdText.Visibility = Visibility.Hidden;
             psdBlock.Visibility = Visibility.Hidden;
-            retrySendBtn.Visibility = Visibility.Hidden;
+           // retrySendBtn.Visibility = Visibility.Hidden;
+           // editBtn.Visibility = Visibility.Hidden;
 
         }
         //按Esc键退出全屏  
@@ -115,12 +116,13 @@ namespace main
             phoneText.Text = phoneNum;
             phoneText.IsReadOnly = false;
             phoneText.Focus();
-    
+            disTimer2.Stop();
             msg.Visibility = Visibility.Hidden;
             psdLabel.Visibility = Visibility.Hidden;
             psdText.Visibility = Visibility.Hidden;
             psdBlock.Visibility = Visibility.Hidden;
-            retrySendBtn.Visibility = Visibility.Hidden;
+            retrySendBtn.Visibility = Visibility.Collapsed;
+            editBtn.Visibility = Visibility.Collapsed;
         }
         //点击重新发送
         private void retrySendBtn_Click(object sender, RoutedEventArgs e)
@@ -210,6 +212,7 @@ namespace main
         //键盘点击
         private void button_Clicked(object sender, RoutedEventArgs e)
         {
+           
             countSecond = initTime;
             string buttonName = ((Button)e.OriginalSource).Name;
             if (phoneText.IsFocused)
@@ -242,6 +245,7 @@ namespace main
                         msg.Visibility = Visibility.Visible;
                         return;
                     }
+
                     countSecond = initTime;
                     disTimer2 = new DispatcherTimer();
                     disTimer2.Interval = new TimeSpan(0, 0, 0, 1);
@@ -249,8 +253,8 @@ namespace main
                     disTimer2.Start();
 
                     retrySendBtn.IsEnabled = false;
-                    retrySendBtn.Visibility = Visibility.Visible;                  
-
+                    retrySendBtn.Visibility = Visibility.Visible;
+                    editBtn.Visibility = Visibility.Visible;
                     psdBlock.Focus();
                     phoneText.IsReadOnly = true;
                     message = "请输入验证码";

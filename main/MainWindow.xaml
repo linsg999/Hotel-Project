@@ -7,21 +7,12 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
-                            <Path x:Name="形状_按钮" Data= "F1M13,7C144.987,7 277.013,7 409,7 440.997,7 473.003,7 505,7 516.3,7 533.877,4.412 539,11 477.006,73.66 414.994,136.34 353,199 272.675,199 192.325,199 112,199 87.401,199 29.243,205.174 11,197 11,152.671 11,108.329 11,64 11,47.255 7.2,19.885 13,7z" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
+                            <Path x:Name="形状_按钮" Data= "F1M13,7C144.987,7 277.013,7 409,7 440.997,7 473.003,7 505,7 516.3,7 533.877,4.412 539,11 477.006,73.66 414.994,136.34 353,199 272.675,199 192.325,199 112,199 87.401,199 29.243,205.174 11,197 11,152.671 11,108.329 11,64 11,47.255 7.2,19.885 13,7z" Stretch="Fill" RenderTransformOrigin="0.5,0.5">                             
                                 <Path.Fill>
                                     <ImageBrush ImageSource="img/入住办理.png"/>
                                 </Path.Fill>
                             </Path>
                         </Grid>
-
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -31,16 +22,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
-                            <Path x:Name="形状_按钮" Data="F1M0,0C0,0 549,0 549,0 549,0 549,214 549,214 549,214 0,214 0,214 0,214 0,0 0,0z" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
-
+                            <Path x:Name="形状_按钮" Data="F1M13,7C144.987,7 277.013,7 409,7 440.997,7 473.003,7 505,7 516.299,7 533.877,4.412 539,11 522.668,27.665 506.332,44.335 490,61 444.338,106.995 398.662,153.005 353,199 272.675,199 192.325,199 112,199 87.401,199 29.243,205.174 11,197 11,152.671 11,108.329 11,64 11,47.255 7.2,19.885 13,7z"  Stretch="Fill" RenderTransformOrigin="0.5,0.5">                              
                                 <Path.Fill>
                                     <ImageBrush ImageSource="img/入住办理（点击）.png"/>
                                 </Path.Fill>
@@ -56,15 +38,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
-                            <Path x:Name="形状_按钮" Data= "F1M195,7C275.659,7 356.341,7 437,7 461.599,7 519.757,0.826 538,9 538,53.329 538,97.671 538,142 538,158.745 541.8,186.115 536,199 411.679,199 287.321,199 163,199 125.67,199 88.33,199 51,199 38.28,199 19.301,201.164 10,197 10,196.667 10,196.333 10,196 10,195 10,194 10,193 71.66,131.006 133.339,68.994 195,7z" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
+                            <Path x:Name="形状_按钮" Data= "F1M195,7C275.659,7 356.341,7 437,7 461.599,7 519.757,0.826 538,9 538,53.329 538,97.671 538,142 538,158.745 541.8,186.115 536,199 411.679,199 287.321,199 163,199 125.67,199 88.33,199 51,199 38.28,199 19.301,201.164 10,197 10,196.667 10,196.333 10,196 10,195 10,194 10,193 71.66,131.006 133.339,68.994 195,7z" Stretch="Fill" RenderTransformOrigin="0.5,0.5">                              
 
                                 <Path.Fill>
                                     <ImageBrush ImageSource="img/扫码入住.png"/>
@@ -82,15 +56,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
-                            <Path x:Name="形状_按钮" Data= "F1M195,7C275.659,7 356.341,7 437,7 461.599,7 519.757,0.826 538,9 538,53.329 538,97.671 538,142 538,158.745 541.8,186.115 536,199 411.679,199 287.321,199 163,199 125.67,199 88.33,199 51,199 38.28,199 19.301,201.164 10,197 10,196.667 10,196.333 10,196 10,195 10,194 10,193 71.66,131.006 133.339,68.994 195,7z" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
+                            <Path x:Name="形状_按钮" Data= "F1M195,7C275.659,7 356.341,7 437,7 461.599,7 519.757,0.826 538,9 538,53.329 538,97.671 538,142 538,158.745 541.8,186.115 536,199 411.679,199 287.321,199 163,199 125.67,199 88.33,199 51,199 38.28,199 19.301,201.164 10,197 10,196.667 10,196.333 10,196 10,195 10,194 10,193 71.66,131.006 133.339,68.994 195,7z"  Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                                 <Path.Fill>
                                     <ImageBrush ImageSource="img/扫码入住(点击）.png"/>
                                 </Path.Fill>
@@ -133,14 +99,11 @@
             <!--右侧区域-->
             <Image Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="img/右广告图.jpg"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="UniformToFill" />
             <Grid Grid.Column="1"  Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" >
-                <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-37,442,-163,424">
-                    <Button x:Name="checkBtn"  Style="{DynamicResource ButtonStyle_Custom}" HorizontalAlignment="Left" Width="500" Margin="10,-20,0,60" Click="checkBtn_Click" MouseEnter="checkBtn_MouseEnter" />
-                    <Button x:Name="checkBtn2" Style="{DynamicResource ButtonStyle_Custom2}" HorizontalAlignment="Left"  Width="500" Margin="10,-20,0,60" Click="checkBtn_Click"  Visibility="Collapsed"  MouseLeave="checkBtn_MouseLeave"/>
-
-                    <Button  x:Name="codeBtn"  Style="{DynamicResource ButtonStyle_Custo}" HorizontalAlignment="Left"  Margin="-160 20 0 40"    MouseEnter="codeBtn_MouseEnter"/>
-                    <Button x:Name="codeBtn2"  Style="{DynamicResource ButtonStyle_Custo2}" HorizontalAlignment="Left"  Margin="-160 20 0 40" Visibility="Collapsed"  MouseLeave="codeBtn_MouseLeave" />
-                   
-     
+                <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-40,0,0,0">
+                    <Button x:Name="checkBtn"  Style="{DynamicResource ButtonStyle_Custom}" HorizontalAlignment="Left"  Margin="10,-20,0,60" Click="checkBtn_Click" MouseEnter="checkBtn_MouseEnter" />
+                    <Button x:Name="checkBtn2" Style="{DynamicResource ButtonStyle_Custom2}" HorizontalAlignment="Left"  Margin="10,-20,0,60" Click="checkBtn_Click" Visibility="Collapsed"  MouseLeave="checkBtn_MouseLeave"/>
+                    <Button  x:Name="codeBtn"  Style="{DynamicResource ButtonStyle_Custo}" HorizontalAlignment="Left"    Margin="-160 20 0 40"    MouseEnter="codeBtn_MouseEnter"/>                   
+                    <Button x:Name="codeBtn2"  Style="{DynamicResource ButtonStyle_Custo2}" HorizontalAlignment="Left"  Margin="-160 20 0 40" Visibility="Collapsed"   MouseLeave="codeBtn_MouseLeave" />                      
                 </StackPanel>
             </Grid>
         </Grid>
