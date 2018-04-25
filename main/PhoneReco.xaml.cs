@@ -25,6 +25,12 @@ namespace main
         private static int initTime = 120;//倒计时初始时间
         private int countSecond = initTime;//倒计时时间
         private DispatcherTimer disTimer;//定时器
+
+        private static int initTime2 = 60;//倒计时初始时间
+        private int countSecond2 = initTime2;//倒计时时间
+        private DispatcherTimer disTimer2;//定时器
+
+
         private DispatcherTimer dateTimer;//获取系统时间的定时器
         private string phoneNum = "";
         private string VerifiCode = "";
@@ -80,6 +86,7 @@ namespace main
             psdText.Visibility = Visibility.Hidden;
             psdBlock.Visibility = Visibility.Hidden;
             retrySendBtn.Visibility = Visibility.Hidden;
+
         }
         //按Esc键退出全屏  
         private void PhoneReco_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -117,7 +124,16 @@ namespace main
         }
         //点击重新发送
         private void retrySendBtn_Click(object sender, RoutedEventArgs e)
-        {          
+        {
+
+            countSecond2 = initTime2;
+            disTimer2 = new DispatcherTimer();
+            disTimer2.Interval = new TimeSpan(0, 0, 0, 1);
+            disTimer2.Tick += new EventHandler(disTimer2_Tick);
+            disTimer2.Start();
+            retrySendBtn.IsEnabled = false;
+            retrySendBtn.Visibility = Visibility.Visible;  
+
             psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
             VerifiCode = "";
             psdText.Text = VerifiCode;
@@ -162,6 +178,35 @@ namespace main
                 countSecond--;
             }
         }
+        //倒计时2
+        void disTimer2_Tick(object sender, EventArgs e)
+        {
+
+            if (countSecond2 == 0)
+            {
+                disTimer2.Stop();
+                time.Content = "";
+          
+                retrySendBtn.IsEnabled = true;
+                retrySendBtn.Visibility = Visibility.Visible;  
+            }
+            else
+            {
+                //判断lblSecond是否处于UI线程上
+                if (time.Dispatcher.CheckAccess())
+                {
+                    time.Content = countSecond2.ToString();
+                }
+                else
+                {
+                    time.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (Action)(() =>
+                    {
+                        time.Content = countSecond2.ToString();
+                    }));
+                }
+                countSecond2--;
+            }
+        }
         //键盘点击
         private void button_Clicked(object sender, RoutedEventArgs e)
         {
@@ -197,6 +242,15 @@ namespace main
                         msg.Visibility = Visibility.Visible;
                         return;
                     }
+                    countSecond = initTime;
+                    disTimer2 = new DispatcherTimer();
+                    disTimer2.Interval = new TimeSpan(0, 0, 0, 1);
+                    disTimer2.Tick += new EventHandler(disTimer2_Tick);
+                    disTimer2.Start();
+
+                    retrySendBtn.IsEnabled = false;
+                    retrySendBtn.Visibility = Visibility.Visible;                  
+
                     psdBlock.Focus();
                     phoneText.IsReadOnly = true;
                     message = "请输入验证码";
@@ -206,7 +260,7 @@ namespace main
                     psdText.Visibility = Visibility.Visible;
                     psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
                     psdBlock.Visibility = Visibility.Visible;
-                    retrySendBtn.Visibility = Visibility.Visible;
+                  
                     psdText.Focus();
                 }
             }
@@ -245,6 +299,7 @@ namespace main
         private void Window_Closed(object sender, EventArgs e)
         {
             disTimer.Stop();
+            disTimer2.Stop();
            ggTimer.Stop();
         }
        

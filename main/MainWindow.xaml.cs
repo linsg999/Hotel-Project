@@ -91,22 +91,30 @@ namespace main
 
         private void checkBtn_MouseEnter(object sender, MouseEventArgs e)
         {
-            checkBtn.Style = checkBtn2.Style;
+            //checkBtn.Style = checkBtn2.Style;
+            checkBtn2.Visibility = Visibility.Visible;
+            checkBtn.Visibility = Visibility.Collapsed;
         }
        
         private void checkBtn_MouseLeave(object sender, MouseEventArgs e)
         {
-            checkBtn.Style = checkBtn.Style;
+            //checkBtn.Style = checkBtn.Style;
+            checkBtn.Visibility = Visibility.Visible;
+            checkBtn2.Visibility = Visibility.Collapsed;
         }
 
         private void codeBtn_MouseEnter(object sender, MouseEventArgs e)
         {
-            codeBtn.Style = codeBtn2.Style;
+           // codeBtn.Style = codeBtn2.Style;
+            codeBtn2.Visibility = Visibility.Visible;
+            codeBtn.Visibility = Visibility.Collapsed;
         }
 
         private void codeBtn_MouseLeave(object sender, MouseEventArgs e)
         {
-            codeBtn.Style = codeBtn2.Style;
+            //codeBtn.Style = codeBtn2.Style;
+            codeBtn.Visibility = Visibility.Visible;
+            codeBtn2.Visibility = Visibility.Collapsed;
         }
 
        

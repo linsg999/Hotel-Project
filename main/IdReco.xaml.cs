@@ -26,15 +26,15 @@ namespace main
 
         //定义跳转变量 当变量参数=某个信号时（可以为true），跳转到Verify.xaml，订单查询中。
         public bool goVerify = false;
-        private int countSecond = 10;//倒计时
-        private DispatcherTimer disTimer;//定时器
-        private DispatcherTimer dateTimer;//获取系统时间的定时器
 
+        private DispatcherTimer dateTimer;//获取系统时间的定时器
         private DispatcherTimer ggTimer;//广告定时器
         private int ggInterval = 5;//广告轮播时间
         private int index = 0;//轮播的index
         private string ggFolder = "../../IdReco_img/";
-       
+
+        private int countSecond = 10;//倒计时
+        private DispatcherTimer disTimer;//定时器
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dateTimer = new DispatcherTimer();

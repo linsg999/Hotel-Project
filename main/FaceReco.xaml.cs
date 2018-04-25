@@ -30,17 +30,57 @@ namespace main
         private int ggInterval = 5;//广告轮播时间
         private int index = 0;//轮播的index
         private string ggFolder = "../../FaceReco_img/";
+
+        private int countSecond = 10;//倒计时
+        private DispatcherTimer disTimer;//定时器
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
             dateTimer = new DispatcherTimer();
             dateTimer.Interval = new TimeSpan(0, 0, 0, 1);
             dateTimer.Tick += new EventHandler(showTime);
             dateTimer.Start();
+
+            disTimer = new DispatcherTimer();
+            disTimer.Interval = new TimeSpan(0, 0, 0, 1);
+            disTimer.Tick += new EventHandler(disTimer_Tick);
+            disTimer.Start();
+
             ggTimer = new DispatcherTimer();
             ggTimer.Interval = new TimeSpan(0, 0, 0, ggInterval);
             ggTimer.Tick += new EventHandler(showGg);
             ggTimer.Start();
         }
+        //倒计时
+        void disTimer_Tick(object sender, EventArgs e)
+        {
+
+            if (countSecond == 0)
+            {
+                disTimer.Stop();
+                var newWindow = new CollectMsg();
+                newWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                //判断lblSecond是否处于UI线程上
+                if (countDownLb.Dispatcher.CheckAccess())
+                {
+                    countDownLb.Content = countSecond.ToString();
+                }
+                else
+                {
+                    countDownLb.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (Action)(() =>
+                    {
+                        countDownLb.Content = countSecond.ToString();
+                    }));
+                }
+                countSecond--;
+            }
+        }
+       
         //轮播广告
         private void showGg(object sender, EventArgs e)
         {
@@ -86,6 +126,7 @@ namespace main
         {
             dateTimer.Stop();
             ggTimer.Stop();
+            disTimer.Stop();
         }
 
      

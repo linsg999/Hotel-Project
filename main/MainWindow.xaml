@@ -20,7 +20,6 @@
                                     <ImageBrush ImageSource="img/入住办理.png"/>
                                 </Path.Fill>
                             </Path>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
                         </Grid>
 
                     </ControlTemplate>
@@ -41,16 +40,13 @@
                                         <TranslateTransform/>
                                     </TransformGroup>
                                 </Path.RenderTransform>
-                                <Path.Effect>
-                                    <DropShadowEffect ShadowDepth="0" BlurRadius="22" Color="#FF646464"/>
-                                </Path.Effect>
+
                                 <Path.Fill>
                                     <ImageBrush ImageSource="img/入住办理（点击）.png"/>
                                 </Path.Fill>
                             </Path>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
-                        </Grid>
 
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -69,14 +65,12 @@
                                         <TranslateTransform/>
                                     </TransformGroup>
                                 </Path.RenderTransform>
-                                <Path.Effect>
-                                    <DropShadowEffect ShadowDepth="0" BlurRadius="22" Color="#FF646464"/>
-                                </Path.Effect>
+
                                 <Path.Fill>
                                     <ImageBrush ImageSource="img/扫码入住.png"/>
                                 </Path.Fill>
                             </Path>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
+
                         </Grid>
 
                     </ControlTemplate>
@@ -97,14 +91,10 @@
                                         <TranslateTransform/>
                                     </TransformGroup>
                                 </Path.RenderTransform>
-                                <Path.Effect>
-                                    <DropShadowEffect ShadowDepth="0" BlurRadius="22" Color="#FF646464"/>
-                                </Path.Effect>
                                 <Path.Fill>
                                     <ImageBrush ImageSource="img/扫码入住(点击）.png"/>
                                 </Path.Fill>
                             </Path>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -144,11 +134,11 @@
             <Image Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="img/右广告图.jpg"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="UniformToFill" />
             <Grid Grid.Column="1"  Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" >
                 <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-37,442,-163,424">
-                    <Button x:Name="checkBtn"  Style="{DynamicResource ButtonStyle_Custom}" HorizontalAlignment="Left"  Margin="10,-20,0,60" Click="checkBtn_Click" MouseEnter="checkBtn_MouseEnter" MouseLeave="checkBtn_MouseLeave" />
-                    <Button x:Name="checkBtn2"  Style="{DynamicResource ButtonStyle_Custom2}" HorizontalAlignment="Left"  Margin="10,-20,0,60" Click="checkBtn_Click"  Visibility="Collapsed" />
+                    <Button x:Name="checkBtn"  Style="{DynamicResource ButtonStyle_Custom}" HorizontalAlignment="Left" Width="500" Margin="10,-20,0,60" Click="checkBtn_Click" MouseEnter="checkBtn_MouseEnter" />
+                    <Button x:Name="checkBtn2" Style="{DynamicResource ButtonStyle_Custom2}" HorizontalAlignment="Left"  Width="500" Margin="10,-20,0,60" Click="checkBtn_Click"  Visibility="Collapsed"  MouseLeave="checkBtn_MouseLeave"/>
 
-                    <Button  x:Name="codeBtn"  Style="{DynamicResource ButtonStyle_Custo}" HorizontalAlignment="Left"  Margin="-160 20 0 40"  Click="codeBtn_Click"  MouseEnter="codeBtn_MouseEnter" MouseLeave="codeBtn_MouseLeave"/>
-                    <Button x:Name="codeBtn2"  Style="{DynamicResource ButtonStyle_Custo2}" HorizontalAlignment="Left"  Margin="-160 20 0 40" Click="checkBtn_Click" Visibility="Collapsed" />
+                    <Button  x:Name="codeBtn"  Style="{DynamicResource ButtonStyle_Custo}" HorizontalAlignment="Left"  Margin="-160 20 0 40"    MouseEnter="codeBtn_MouseEnter"/>
+                    <Button x:Name="codeBtn2"  Style="{DynamicResource ButtonStyle_Custo2}" HorizontalAlignment="Left"  Margin="-160 20 0 40" Visibility="Collapsed"  MouseLeave="codeBtn_MouseLeave" />
                    
      
                 </StackPanel>
