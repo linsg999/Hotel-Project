@@ -23,6 +23,20 @@ namespace main
     /// </summary>
     public partial class CheckMsg : Window
     {
+        //订单内部类
+        class order
+        {
+            private string room { get; set; }//入住房间
+            private string checkinTime { get; set; }//入住时间
+            private string checkoutTime { get; set; }//离开时间
+
+            public order(string room, string checkinTime, string checkoutTime)
+            {
+                this.room = room;
+                this.checkinTime = checkinTime;
+                this.checkoutTime = checkoutTime;
+            }
+        }
         public string ordermsg;
         public string checkroom;
         public string checktime;
@@ -33,6 +47,11 @@ namespace main
         private int ggInterval = 5;//广告轮播时间
         private int index = 0;//轮播的index
         private string ggFolder = "../../CheckMsg_img/";
+        ArrayList orders = new ArrayList();//订单list
+        private string orderInfo;//订单提示
+        private int orderIndex = 0;//订单索引
+
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dateTimer = new DispatcherTimer();
@@ -43,6 +62,25 @@ namespace main
             ggTimer.Interval = new TimeSpan(0, 0, 0, ggInterval);
             ggTimer.Tick += new EventHandler(showGg);
             ggTimer.Start();
+
+            //模拟订单，用于测试效果
+            order od1 = new order("宜必思酒店", "2018年04月26日", "2018年04月27日");
+            order od2 = new order("宜必思酒店111", "2018年04月20日", "2018年04月21日");
+
+            orders.Add(od1);
+            orders.Add(od2);
+
+
+            if (orders.Count == 1)
+            {
+                //唯一订单,不展示上一个下一个
+                //orders[orderIndex];
+            }
+            else {
+
+                //多个订单,点击上一个下一个时可以用orderIndex来对应哪一个
+               
+            }
         }
         //轮播广告
         private void showGg(object sender, EventArgs e)

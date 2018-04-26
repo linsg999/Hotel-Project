@@ -26,7 +26,7 @@ namespace main
         private int countSecond = initTime;//倒计时时间
         private DispatcherTimer disTimer;//定时器
 
-        private static int initTime2 = 60;//倒计时初始时间
+        private static int initTime2 = 60;//验证码倒计时初始时间
         private int countSecond2 = initTime2;//倒计时时间
         private DispatcherTimer disTimer2;//定时器
 
@@ -34,7 +34,7 @@ namespace main
         private DispatcherTimer dateTimer;//获取系统时间的定时器
         private string phoneNum = "";
         private string VerifiCode = "";
-        private int psdMsg = 01;//验证码编号
+        private int psdMsg = 01;//验证码编号(变量)
         private string message = "";//提示信息
 
         private DispatcherTimer ggTimer;//广告定时器
@@ -52,6 +52,11 @@ namespace main
             ggTimer.Interval = new TimeSpan(0, 0, 0, ggInterval);
             ggTimer.Tick += new EventHandler(showGg);
             ggTimer.Start();
+
+            disTimer = new DispatcherTimer();
+            disTimer.Interval = new TimeSpan(0, 0, 0, 1);
+            disTimer.Tick += new EventHandler(disTimer_Tick);
+            disTimer.Start();
         }
         //轮播广告
         private void showGg(object sender, EventArgs e)
@@ -112,11 +117,20 @@ namespace main
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
             phoneNumLb.Text = "请输入手机号";
+            phoneNumLb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bfbebe")); 
             phoneNum = "";
             phoneText.Text = phoneNum;
+
+            disTimer2.Stop();
+            time.Content = "";
+
+            psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
+            VerifiCode = "";
+            psdText.Text = VerifiCode;
+
             phoneText.IsReadOnly = false;
             phoneText.Focus();
-            disTimer2.Stop();
+
             msg.Visibility = Visibility.Hidden;
             psdLabel.Visibility = Visibility.Hidden;
             psdText.Visibility = Visibility.Hidden;
@@ -133,6 +147,7 @@ namespace main
             disTimer2.Interval = new TimeSpan(0, 0, 0, 1);
             disTimer2.Tick += new EventHandler(disTimer2_Tick);
             disTimer2.Start();
+
             retrySendBtn.IsEnabled = false;
             retrySendBtn.Visibility = Visibility.Visible;  
 
@@ -145,13 +160,7 @@ namespace main
 
         }
 
-        private void Viewbox_Loaded(object sender, RoutedEventArgs e)
-        {
-            disTimer = new DispatcherTimer();
-            disTimer.Interval = new TimeSpan(0, 0, 0, 1);
-            disTimer.Tick += new EventHandler(disTimer_Tick);
-            disTimer.Start();
-        }
+    
         //倒计时
         void disTimer_Tick(object sender, EventArgs e)
         {
@@ -213,7 +222,7 @@ namespace main
         private void button_Clicked(object sender, RoutedEventArgs e)
         {
            
-            countSecond = initTime;
+            //countSecond = initTime;
             string buttonName = ((Button)e.OriginalSource).Name;
             if (phoneText.IsFocused)
             {
@@ -224,7 +233,9 @@ namespace main
                 else if (buttonName.Equals("backBtn"))
                 {
                     if (phoneNum.Equals(""))
+                    {
                         return;
+                    }
                     phoneNum = phoneNum.Substring(0, phoneNum.Length - 1);
                 }
                 else if(phoneNum.Length<11)
@@ -238,7 +249,7 @@ namespace main
                 //判断手机号是否为11位 输入验证码
                 if (phoneNum.Length == 11)
                 {
-                    if (phoneNum.Substring(1, 1).Equals("2"))
+                    if (phoneNum.Substring(1, 1).Equals("2") || !phoneNum.Substring(0, 1).Equals("1"))
                     {
                         message = "请输入有效的手机号码！";
                         msg.Content = message;
@@ -246,7 +257,7 @@ namespace main
                         return;
                     }
 
-                    countSecond = initTime;
+                    countSecond2 = initTime2;
                     disTimer2 = new DispatcherTimer();
                     disTimer2.Interval = new TimeSpan(0, 0, 0, 1);
                     disTimer2.Tick += new EventHandler(disTimer2_Tick);
@@ -294,10 +305,10 @@ namespace main
         }
 
 
-        //重置时间
-        private void refreshTimer(object sender, RoutedEventArgs e)
+       // 重置时间
+       private void refreshTimer(object sender, RoutedEventArgs e)
         {
-            countSecond = initTime;
+           countSecond = initTime;
         }
 
         private void Window_Closed(object sender, EventArgs e)
