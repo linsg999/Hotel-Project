@@ -65,8 +65,8 @@
                                 </Style>
                             </TextBlock.Style>
                         </TextBlock>
-
                         <Label x:Name="psdLabel" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 " Foreground="White"  FontSize="40" FontWeight="Bold" Content="验证码"  />
+                        <Label x:Name="psdMsg2" Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Content="验证码错误，请重新输入" VerticalAlignment="Center" Margin="10 10 " Foreground="Red"  FontSize="32" Visibility="Hidden" />
                         <TextBox x:Name="psdText" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Width="768"  VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="10,10,0,10" Foreground="White" FontSize="68" FontWeight="Bold" CaretBrush="White" Background="Transparent" BorderBrush="#99FFFFFF" GotMouseCapture="refreshTimer" SelectionBrush="#CCFFFFFF"/>
                         <TextBlock x:Name="psdBlock" IsHitTestVisible="False" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Text="" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="#bfbebe" FontSize="48" FontWeight="Bold">
                             <TextBlock.Style>
