@@ -135,6 +135,7 @@ namespace main
             msg.Visibility = Visibility.Hidden;
             psdLabel.Visibility = Visibility.Hidden;
             psdText.Visibility = Visibility.Hidden;
+            psdMsg2.Visibility = Visibility.Hidden;
             psdBlock.Visibility = Visibility.Hidden;
             retrySendBtn.Visibility = Visibility.Collapsed;
             editBtn.Visibility = Visibility.Collapsed;
@@ -150,8 +151,8 @@ namespace main
             disTimer2.Start();
 
             retrySendBtn.IsEnabled = false;
-            retrySendBtn.Visibility = Visibility.Visible;  
-
+            retrySendBtn.Visibility = Visibility.Visible;
+            psdMsg2.Visibility = Visibility.Hidden;
             psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
             VerifiCode = "";
             psdText.Text = VerifiCode;
