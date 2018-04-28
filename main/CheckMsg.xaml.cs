@@ -26,9 +26,24 @@ namespace main
         //订单内部类
         class order
         {
-            private string room { get; set; }//入住房间
-            private string checkinTime { get; set; }//入住时间
-            private string checkoutTime { get; set; }//离开时间
+             private string room;//入住房间
+            private string checkoutTime;//离开时间
+            private string checkinTime;//入住时间
+            public string Room
+            {
+                get { return room; }
+                set { room = value; }
+            }
+            public string CheckinTime
+            {
+                get { return checkinTime; }
+                set { checkinTime = value; }
+            }
+            public string CheckoutTime
+            {
+                get { return checkoutTime; }
+                set { checkoutTime = value; }
+            }
 
             public order(string room, string checkinTime, string checkoutTime)
             {
@@ -37,7 +52,6 @@ namespace main
                 this.checkoutTime = checkoutTime;
             }
         }
-        public string ordermsg;
         public string checkroom;
         public string checktime;
         public string lefttime;
@@ -47,6 +61,7 @@ namespace main
         private int ggInterval = 5;//广告轮播时间
         private int index = 0;//轮播的index
         private string ggFolder = "../../CheckMsg_img/";
+
         ArrayList orders = new ArrayList();//订单list
         private string orderInfo;//订单提示
         private int orderIndex = 0;//订单索引
@@ -66,22 +81,91 @@ namespace main
             //模拟订单，用于测试效果
             order od1 = new order("宜必思酒店", "2018年04月26日", "2018年04月27日");
             order od2 = new order("宜必思酒店111", "2018年04月20日", "2018年04月21日");
+            order od3 = new order("宜必思酒店222", "2018年04月22日", "2018年04月23日");
 
             orders.Add(od1);
             orders.Add(od2);
-
+            orders.Add(od3);
 
             if (orders.Count == 1)
             {
                 //唯一订单,不展示上一个下一个
-                //orders[orderIndex];
+                lastBtn.Visibility = Visibility.Collapsed;
+                nextBtn.Visibility = Visibility.Collapsed;
+                //订单内容
+                orderInfo = "您好，您入住房间的时间在明天，领取房卡后，请妥善保管好您的房卡，在入住当天下午14:00前办理入住......";
+                checkroom = (orders[0] as order).Room;
+                checktime = (orders[0] as order).CheckinTime;
+                lefttime = (orders[0] as order).CheckoutTime;
+                orderMsg.Text = orderInfo;
+                checkRoom.Content = checkroom;
+                checkTime.Content = checktime;
+                leftTime.Content = lefttime;
+
             }
             else {
-
                 //多个订单,点击上一个下一个时可以用orderIndex来对应哪一个
+                lastBtn.Visibility = Visibility.Visible;
+                nextBtn.Visibility = Visibility.Visible;
+                //订单内容
+                orderInfo = "您好，您入住房间的时间在明天，领取房卡后，请妥善保管好您的房卡，在入住当天下午14:00前办理入住......";
+                checkroom = (orders[0] as order).Room;
+                checktime = (orders[0] as order).CheckinTime;
+                lefttime = (orders[0] as order).CheckoutTime;
+                orderMsg.Text = orderInfo;
+                checkRoom.Content = checkroom;
+                checkTime.Content = checktime;
+                leftTime.Content = lefttime;
                
             }
         }
+        //点击上一个
+        private void lastBtn_Click(object sender, RoutedEventArgs e)
+        {
+            nextBtn.Visibility = Visibility.Visible;
+            //当前为第一个订单信息  不能点击上一个
+            if (orderIndex == 0)
+            {
+                lastBtn.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                lastBtn.Visibility = Visibility.Visible;
+                orderInfo = "您好，您入住房间的时间在明天，领取房卡后，请妥善保管好您的房卡，在入住当天下午14:00前办理入住......";
+                checkroom = (orders[orderIndex-1] as order).Room;
+                checktime = (orders[orderIndex - 1] as order).CheckinTime;
+                lefttime = (orders[orderIndex - 1] as order).CheckoutTime;
+                orderMsg.Text = orderInfo;
+                checkRoom.Content = checkroom;
+                checkTime.Content = checktime;
+                leftTime.Content = lefttime;
+            }
+           
+        }
+        //点击下一个
+        private void nextBtn_Click(object sender, RoutedEventArgs e)
+        {
+            lastBtn.Visibility = Visibility.Visible;
+            //当前为最后一个订单信息 不能点击下一个
+            if (orderIndex == orders.Count-1)
+            {
+                nextBtn.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                nextBtn.Visibility = Visibility.Visible;
+                orderInfo = "您好，您入住房间的时间在明天，领取房卡后，请妥善保管好您的房卡，在入住当天下午14:00前办理入住......";
+                checkroom = (orders[orderIndex + 1] as order).Room;
+                checktime = (orders[orderIndex + 1] as order).CheckinTime;
+                lefttime = (orders[orderIndex + 1] as order).CheckoutTime;
+                orderMsg.Text = orderInfo;
+                checkRoom.Content = checkroom;
+                checkTime.Content = checktime;
+                leftTime.Content = lefttime;
+            }
+        }
+     
+
         //轮播广告
         private void showGg(object sender, EventArgs e)
         {
@@ -109,14 +193,6 @@ namespace main
         public CheckMsg()
         {
             InitializeComponent();
-            ordermsg = "您好，您入住房间的时间在明天，领取房卡后，请妥善保管好您的房卡，在入住当天下午14:00前办理入住......";
-            checkroom = "xxxx酒店-21栋-308房间";
-            checktime = "2018年4月22日";
-            lefttime = "2018年4月23日";
-            orderMsg.Text = ordermsg;
-            checkRoom.Content = checkroom;
-            checkTime.Content = checktime;
-            leftTime.Content = lefttime;
         }
         private void homeBtn_Click(object sender, RoutedEventArgs e)//回到首页
         {
@@ -136,6 +212,7 @@ namespace main
             dateTimer.Stop();
             ggTimer.Stop();
         }
+
      
     }
 }
