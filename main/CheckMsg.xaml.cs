@@ -93,6 +93,7 @@ namespace main
             if (orders.Count == 1)
             {
                 //唯一订单,不展示上一个下一个
+
                 lastBtn.Visibility = Visibility.Collapsed;
                 nextBtn.Visibility = Visibility.Collapsed;
                 //订单内容
@@ -104,6 +105,7 @@ namespace main
                 checkRoom.Content = checkroom;
                 checkTime.Content = checktime;
                 leftTime.Content = lefttime;
+
             }
             else {
                 //多个订单,点击上一个下一个时可以用orderIndex来对应哪一个
