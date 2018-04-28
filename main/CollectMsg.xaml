@@ -53,7 +53,7 @@
                         </Border>
                         <Image  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20 0" Source="img/身份对比.png"/>
                         <Border Grid.Row="1" Grid.Column="2"  BorderBrush="White" BorderThickness="2" CornerRadius="5" Height="400" Width="350" >
-                            <Image x:Name="cammerImg" Stretch="Fill"/>
+                            <Image x:Name="camImg" Stretch="Fill"/>
                         </Border>
                         <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Margin="0 30"  Foreground="White" Content="[证件照]"  FontSize="28"/>
                         <Label Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Center" Margin="0 30"  Foreground="White" Content="[拍摄照]"  FontSize="28"/>

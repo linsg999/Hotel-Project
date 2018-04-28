@@ -34,6 +34,7 @@ namespace main
         private DispatcherTimer dateTimer;//获取系统时间的定时器
         private string phoneNum = "";
         private string VerifiCode = "";
+        private string VerifiCodeT = "123456";//测试的验证码
         private int psdMsg = 01;//验证码编号(变量)
         private string message = "";//提示信息
 
@@ -124,10 +125,10 @@ namespace main
             disTimer2.Stop();
             time.Content = "";
 
-            psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
+            psdBlock.Text = "   请输入【" + psdMsg + "】编号的验证码";
             VerifiCode = "";
             psdText.Text = VerifiCode;
-
+            phoneText.Focusable = true;
             phoneText.IsReadOnly = false;
             phoneText.Focus();
 
@@ -151,7 +152,7 @@ namespace main
             retrySendBtn.IsEnabled = false;
             retrySendBtn.Visibility = Visibility.Visible;  
 
-            psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
+            psdBlock.Text = "   请输入【" + psdMsg + "】编号的验证码";
             VerifiCode = "";
             psdText.Text = VerifiCode;
             phoneText.IsReadOnly = false;
@@ -273,9 +274,9 @@ namespace main
                     msg.Visibility = Visibility.Visible;
                     psdLabel.Visibility = Visibility.Visible;
                     psdText.Visibility = Visibility.Visible;
-                    psdBlock.Text = "请输入【" + psdMsg + "】编号的验证码";
+                    psdBlock.Text = "   请输入【" + psdMsg + "】编号的验证码";
                     psdBlock.Visibility = Visibility.Visible;
-                  
+                    phoneText.Focusable = false;
                     psdText.Focus();
                 }
             }
@@ -292,11 +293,24 @@ namespace main
                         return;
                     VerifiCode = VerifiCode.Substring(0, VerifiCode.Length - 1);
                 }
-                else
+                else if (VerifiCode.Length < 6)
                 {
                     string num = buttonName.Substring(buttonName.Length - 1, 1);
                     VerifiCode = VerifiCode + num;
                 }
+
+                if (VerifiCode.Length == 6)
+                {
+                    if (!VerifiCode.Equals(VerifiCodeT))
+                    {
+                        psdMsg2.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        //验证码输入成功操作
+                    }
+                }
+
                 this.psdText.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff"));
                 psdText.Text = VerifiCode;
                 psdText.SelectionStart = psdText.Text.Length;

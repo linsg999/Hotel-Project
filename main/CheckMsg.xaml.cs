@@ -26,9 +26,12 @@ namespace main
         //订单内部类
         class order
         {
-             private string room;//入住房间
+
+            private string room;//入住房间
             private string checkoutTime;//离开时间
             private string checkinTime;//入住时间
+
+
             public string Room
             {
                 get { return room; }
@@ -101,7 +104,6 @@ namespace main
                 checkRoom.Content = checkroom;
                 checkTime.Content = checktime;
                 leftTime.Content = lefttime;
-
             }
             else {
                 //多个订单,点击上一个下一个时可以用orderIndex来对应哪一个
