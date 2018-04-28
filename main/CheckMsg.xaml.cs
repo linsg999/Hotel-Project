@@ -26,9 +26,25 @@ namespace main
         //订单内部类
         class order
         {
-            private string room { get; set; }//入住房间
-            private string checkinTime { get; set; }//入住时间
-            private string checkoutTime { get; set; }//离开时间
+            private string room;//入住房间
+            private string checkoutTime;//离开时间
+            private string checkinTime;//入住时间
+
+            public string Room
+            {
+                get { return room; }
+                set { room = value; }
+            }
+            public string CheckinTime
+            {
+                get { return checkinTime; }
+                set { checkinTime = value; }
+            }
+            public string CheckoutTime
+            {
+                get { return checkoutTime; }
+                set { checkoutTime = value; }
+            }
 
             public order(string room, string checkinTime, string checkoutTime)
             {
@@ -74,7 +90,6 @@ namespace main
             if (orders.Count == 1)
             {
                 //唯一订单,不展示上一个下一个
-                //orders[orderIndex];
             }
             else {
 
