@@ -24,33 +24,17 @@ namespace main
     /// </summary>
     public partial class CollectMsg : Window
     {
-        //订单内部类
-        class order
-        {
-            private string info;//订单提示
-
-            public string Info
-            {
-                get { return info; }
-                set { info = value; }
-            }
-            private string room;//入住房间
-            private string checkinTime;//入住时间
-            private string checkoutTime;//离开时间
-
-
-
-
-        }
+      
         private DispatcherTimer dateTimer;//获取系统时间的定时器
-
         private DispatcherTimer ggTimer;//广告定时器
         private int ggInterval = 5;//广告轮播时间
         private int index = 0;//轮播的index
         private string ggFolder = "../../CollectMsg_img/";
-
         private int countSecond = 60;//倒计时
         private DispatcherTimer disTimer;//定时器
+        private BitmapImage idImage;//证件照
+        private BitmapImage camImage;//拍摄照
+        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dateTimer = new DispatcherTimer();
