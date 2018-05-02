@@ -117,7 +117,7 @@ namespace main
         //点击修改号码 恢复到默认
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            phoneNumLb.Text = "请输入手机号";
+            phoneNumLb.Text = "   请输入手机号";
             phoneNumLb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bfbebe")); 
             phoneNum = "";
             phoneText.Text = phoneNum;
@@ -252,11 +252,13 @@ namespace main
                 //判断手机号是否为11位 输入验证码
                 if (phoneNum.Length == 11)
                 {
+                    msg.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff"));
                     if (phoneNum.Substring(1, 1).Equals("2") || !phoneNum.Substring(0, 1).Equals("1"))
                     {
                         message = "请输入有效的手机号码！";
                         msg.Content = message;
-                        msg.Visibility = Visibility.Visible;
+                        msg.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0000"));
+                        msg.Visibility = Visibility.Visible;             
                         return;
                     }
 

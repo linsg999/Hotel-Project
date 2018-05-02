@@ -21,7 +21,7 @@ namespace main
     /// <summary>
     /// idWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class RoomCard : Window
+    public partial class DoorCard : Window
     {
         private DispatcherTimer dateTimer;//获取系统时间的定时器
         private DispatcherTimer ggTimer;//广告定时器
@@ -62,7 +62,7 @@ namespace main
             timeLb.Content = DateTime.Now.ToString("HH:mm");
             dateLb.Content = DateTime.Now.ToString("yyyy/MM/dd");
         }
-        public RoomCard()
+        public DoorCard()
         {
             InitializeComponent();
            

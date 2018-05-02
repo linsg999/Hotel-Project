@@ -29,14 +29,15 @@ namespace main
         private DispatcherTimer ggTimer;//广告定时器
         private int ggInterval = 5;//广告轮播时间
         private int index = 0;//轮播的index
+        private int Index = 0;//提示的index
         private string ggFolder = "../../FaceReco_img/";
 
-        private int countSecond = 10;//倒计时
+        private int countSecond = 13;//倒计时
         private DispatcherTimer disTimer;//定时器
-
+        private DispatcherTimer tipsTimer;//定时器
+        private string[] tips = { "请微笑一下", "请眨下眼睛", "我们正在为您解析"};
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             dateTimer = new DispatcherTimer();
             dateTimer.Interval = new TimeSpan(0, 0, 0, 1);
             dateTimer.Tick += new EventHandler(showTime);
@@ -51,6 +52,12 @@ namespace main
             ggTimer.Interval = new TimeSpan(0, 0, 0, ggInterval);
             ggTimer.Tick += new EventHandler(showGg);
             ggTimer.Start();
+
+            tipsTimer = new DispatcherTimer();
+            tipsTimer.Interval = new TimeSpan(0, 0, 0, 3);//3秒切换提示
+            tipsTimer.Tick += new EventHandler(showTips);
+            tipsTimer.Start();
+
         }
         //倒计时
         void disTimer_Tick(object sender, EventArgs e)
@@ -80,7 +87,15 @@ namespace main
                 countSecond--;
             }
         }
-       
+
+
+        private void showTips(object sender, EventArgs e)
+        {
+            if (Index < 3)
+            {
+                tipsLb.Content=tips[Index++];
+            }
+        }
         //轮播广告
         private void showGg(object sender, EventArgs e)
         {

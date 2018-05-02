@@ -135,10 +135,11 @@ namespace main
             else
             {
                 lastBtn.Visibility = Visibility.Visible;
+                orderIndex -= 1;
                 orderInfo = "您好，您入住房间的时间在明天，领取房卡后，请妥善保管好您的房卡，在入住当天下午14:00前办理入住......";
-                checkroom = (orders[orderIndex-1] as order).Room;
-                checktime = (orders[orderIndex - 1] as order).CheckinTime;
-                lefttime = (orders[orderIndex - 1] as order).CheckoutTime;
+                checkroom = (orders[orderIndex] as order).Room;
+                checktime = (orders[orderIndex] as order).CheckinTime;
+                lefttime = (orders[orderIndex] as order).CheckoutTime;
                 orderMsg.Text = orderInfo;
                 checkRoom.Content = checkroom;
                 checkTime.Content = checktime;
@@ -158,10 +159,11 @@ namespace main
             else
             {
                 nextBtn.Visibility = Visibility.Visible;
+                orderIndex+=1;
                 orderInfo = "您好，您入住房间的时间在明天，领取房卡后，请妥善保管好您的房卡，在入住当天下午14:00前办理入住......";
-                checkroom = (orders[orderIndex + 1] as order).Room;
-                checktime = (orders[orderIndex + 1] as order).CheckinTime;
-                lefttime = (orders[orderIndex + 1] as order).CheckoutTime;
+                checkroom = (orders[orderIndex] as order).Room;
+                checktime = (orders[orderIndex ] as order).CheckinTime;
+                lefttime = (orders[orderIndex] as order).CheckoutTime;
                 orderMsg.Text = orderInfo;
                 checkRoom.Content = checkroom;
                 checkTime.Content = checktime;

@@ -67,6 +67,9 @@
     <Compile Include="CollectMsg.xaml.cs">
       <DependentUpon>CollectMsg.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RoomCard.xaml.cs">
+      <DependentUpon>RoomCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoorCard.xaml.cs">
       <DependentUpon>DoorCard.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
     <Page Include="CollectMsg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RoomCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DoorCard.xaml">
       <SubType>Designer</SubType>
