@@ -23,7 +23,7 @@ namespace main
     /// </summary>
     public partial class FaceReco : Window
     {
-        public string username;
+        public string username;//定义用户名变量
         private DispatcherTimer dateTimer;//获取系统时间的定时器
 
         private DispatcherTimer ggTimer;//广告定时器
@@ -123,8 +123,8 @@ namespace main
         public FaceReco()
         {
             InitializeComponent();
-            username = "尊敬的xx先生";
-            nameText.Content = username;
+            username = "xxx";
+            nameText.Content ="尊敬的" +username+"先生";
         }
      
         private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
