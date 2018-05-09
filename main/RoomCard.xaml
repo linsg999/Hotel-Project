@@ -43,8 +43,8 @@
                     <Label  HorizontalAlignment="Left" Margin="480  -68  0 10" Foreground="#FFFFC500" Content="房卡" FontSize="36" FontWeight="Bold" />
                     <Label  HorizontalAlignment="Left" Margin="590  -68  0 10" Foreground="White" Content="，并妥善保管，" FontSize="36" FontWeight="Bold" />
                     <!--<MediaElement  HorizontalAlignment="Center" Margin="0 20" Stretch="Fill" Source="file://F:\hotel-project\main\img\房卡动效.gif" MediaEnded="MediaElement_MediaEnded" />-->
-                    <Image HorizontalAlignment="Center" Margin="0 20" Stretch="Fill" gif:ImageBehavior.AnimatedSource="/img/房卡动效.gif"  gif:ImageBehavior.RepeatBehavior="Forever"/>            
-                    <Image VerticalAlignment="Bottom" Margin="0 20" Stretch="Fill" Source="img/进度文字框.png" x:Name="barText"/>
+                    <Image HorizontalAlignment="Center" Margin="0 20" Stretch="Fill" gif:ImageBehavior.AnimatedSource="/img/房卡动效.gif"  gif:ImageBehavior.RepeatBehavior="Forever"/>
+                    <Image VerticalAlignment="Bottom" Margin="0 20" Stretch="Fill" Source="img/正在办理房卡.png" x:Name="barText"/>
                     <!--<MediaElement VerticalAlignment="Bottom"  Margin="0 20" Stretch="Fill" Source="file://F:\hotel-project\main\img\进度条.gif" MediaEnded="MediaElement_MediaEnded" />-->
                     <Image VerticalAlignment="Bottom"  Margin="0 20" Stretch="Fill" gif:ImageBehavior.AnimatedSource="/img/进度条.gif"  gif:ImageBehavior.RepeatBehavior="Forever"/>
                 </StackPanel>

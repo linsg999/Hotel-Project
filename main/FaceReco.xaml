@@ -38,8 +38,8 @@
                     <Label x:Name="tipsLb" HorizontalAlignment="Left" Margin="0 10" Foreground="White" Content="请将脸对准摄像机移入框内识别..." FontSize="36" FontWeight="Bold" />
                     <Border BorderBrush="White" BorderThickness="1">
                         <Image Stretch="Fill" Source="img/摄像头待进入.png" x:Name="cammerImage" Height="500"/>
-                    </Border>                    
-                    <Image VerticalAlignment="Bottom" Margin="0 20" Stretch="Fill" Source="img/进度文字框.png" x:Name="barText"/>
+                    </Border>
+                    <Image VerticalAlignment="Bottom" Margin="0 20" Stretch="Fill" Source="img/人脸识别中.png" x:Name="barText"/>
                     <Image VerticalAlignment="Bottom"  Margin="0 20" Stretch="Fill" gif:ImageBehavior.AnimatedSource="/img/进度条.gif"  gif:ImageBehavior.RepeatBehavior="Forever"/>             
                 </StackPanel>
             </Grid>

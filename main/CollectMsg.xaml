@@ -57,7 +57,7 @@
                         </Border>
                         <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Margin="0 30"  Foreground="White" Content="[证件照]"  FontSize="28"/>
                         <Label Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Center" Margin="0 30"  Foreground="White" Content="[拍摄照]"  FontSize="28"/>
-                        <Image  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Margin="0 20"  Stretch="Fill" Source="img/进度文字框.png" x:Name="barText"/>
+                        <Image  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Margin="0 20"  Stretch="Fill" Source="img/身份证采集核实中.png" x:Name="barText"/>
                         <Image Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="0 20" Stretch="Fill" gif:ImageBehavior.AnimatedSource="/img/进度条.gif"  gif:ImageBehavior.RepeatBehavior="Forever"/>                      
                     </Grid>
                 </StackPanel>

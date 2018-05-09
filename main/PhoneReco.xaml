@@ -306,8 +306,17 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
+
+                    <Button Name="retrySendBtn2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10" Visibility="Collapsed">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border>
+                                    <Image Name="img" Source="img/重新发送（灰）.png" Stretch="Fill"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                     <Label x:Name="time" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-130,0,10"  Foreground="White" FontSize="28"  Panel.ZIndex="2" ></Label>
-                         
                     <Button Name="homeBtn" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10 " Click="homeBtn_Click" >
                         <Button.Template>
                             <ControlTemplate TargetType="{x:Type Button}">

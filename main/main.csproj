@@ -148,6 +148,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="img\入住办理.psd" />
+    <None Include="img\入住办理（点击）.psd" />
+    <None Include="img\扫码入住%28点击）.psd" />
+    <None Include="img\扫码入住%28点击）.zip" />
+    <None Include="img\扫码入住.psd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -236,6 +241,14 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\retry.png" />
+    <Resource Include="img\人脸识别中.png" />
+    <Resource Include="img\正在办理房卡.png" />
+    <Resource Include="img\正在办理门禁卡.png" />
+    <Resource Include="img\身份证采集核实中.png" />
+    <Resource Include="img\重新发送（灰）.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
