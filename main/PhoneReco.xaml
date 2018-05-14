@@ -32,7 +32,7 @@
             </Grid>
             <!--中间区域-->
             <Grid Grid.Column="1"  Grid.Row="0" Grid.RowSpan="2">
-                <StackPanel ButtonBase.Click="button_Clicked"  Orientation="Vertical" HorizontalAlignment="Center" Margin="100 0"  VerticalAlignment="Center">
+                <StackPanel ButtonBase.Click="button_Clicked"  Orientation="Vertical" HorizontalAlignment="Center" Margin="100 0 0 0"  VerticalAlignment="Center">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
