@@ -39,8 +39,8 @@
                     <Border BorderBrush="White" BorderThickness="1">
                         <Image Stretch="Fill" Source="img/摄像头待进入.png" x:Name="cammerImage" Height="592px" Width="592px"/>
                     </Border>
-                    <Image VerticalAlignment="Bottom" Margin="0 20" Stretch="Fill" Source="img/人脸识别中.png" x:Name="barText"/>
-                    <Image VerticalAlignment="Bottom"  Margin="0 20" Stretch="Fill" gif:ImageBehavior.AnimatedSource="/img/进度条.gif"  gif:ImageBehavior.RepeatBehavior="Forever"/>             
+                    <Image VerticalAlignment="Bottom" Margin="0 10" Stretch="Fill" Source="img/人脸识别中.png" x:Name="barText"/>
+                    <Image VerticalAlignment="Bottom"  Margin="0 30" Stretch="Fill" gif:ImageBehavior.AnimatedSource="/img/进度条.gif"  gif:ImageBehavior.RepeatBehavior="Forever"/>             
                 </StackPanel>
             </Grid>
 

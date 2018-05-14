@@ -34,8 +34,8 @@
             <!--中间区域-->
             <Grid Grid.Column="1"  Grid.Row="0" Grid.RowSpan="2">
                 <StackPanel Orientation="Vertical"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="100 0">
-                    <Label x:Name="userMsg" HorizontalAlignment="Left" Margin="150 20" Foreground="White" Content="" FontSize="36"  FontWeight="Bold" />
-                    <Label HorizontalAlignment="Center" Margin="10 20" Foreground="White" Content="订单查询中，请等待......&#xD;&#xA;请移走并保管好您的身份证" FontFamily="微软雅黑" FontSize="36" FontWeight="Bold" />
+                    <Label x:Name="userMsg" HorizontalAlignment="Left" Margin="150 0 0 10" Foreground="White" Content="" FontSize="36"  FontWeight="Bold" />
+                    <Label HorizontalAlignment="Center" Margin="0 0" Foreground="White" Content="订单查询中，请等待......&#xD;&#xA;请移走并保管好您的身份证" FontFamily="微软雅黑" FontSize="36" FontWeight="Bold" />
                     <Image Stretch="Fill" Margin="280,40,50,40" HorizontalAlignment="Center"  gif:ImageBehavior.AnimatedSource="/img/查询动效.gif"  gif:ImageBehavior.RepeatBehavior="Forever"/>                  
                 </StackPanel>
             </Grid>
