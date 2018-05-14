@@ -13,7 +13,7 @@
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="8*" />
             </Grid.RowDefinitions>
-            <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="img/背景.png"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="UniformToFill"  />
+            <Image Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="img/背景.png"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="UniformToFill"  />
             <Image x:Name="ggImg" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Stretch="Fill" Source="img/左广告图.jpg" />
             <Grid Grid.Column="0" Grid.Row="0">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 30">

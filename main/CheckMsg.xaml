@@ -12,7 +12,7 @@
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="8*" />
             </Grid.RowDefinitions>
-            <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="img/背景.png"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="UniformToFill"  />
+            <Image Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="img/背景.png"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="UniformToFill"  />
             <Image x:Name="ggImg" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Stretch="Fill"  Source="img/左广告图.jpg" />
             <Grid Grid.Column="0" Grid.Row="0">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 30">
@@ -33,12 +33,12 @@
             <!--中间区域-->
            
 
-            <Label  Grid.Column="1"  Grid.Row="0" HorizontalAlignment="Left" Margin="110 100" Width="950" Foreground="#FFFFC500" FontSize="36"  FontWeight="Bold">
+            <Label  Grid.Column="1"  Grid.Row="0" HorizontalAlignment="Left" Margin="110 140" Width="950" Foreground="#FFFFC500" FontSize="36"  FontWeight="Bold">
                 <TextBlock x:Name="orderMsg" TextWrapping="Wrap" Text="" />
             </Label>
             <Grid Grid.Column="1"  Grid.Row="0" Grid.RowSpan="2" Margin="100 0">
                 <Border HorizontalAlignment="Left" Margin="10 0"  VerticalAlignment="Center" BorderBrush="White" BorderThickness="1">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#999999" Width="950" >
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#808285" Width="950" >
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2*" />
@@ -53,21 +53,19 @@
                                 <RowDefinition Height="1*" />
                                 <RowDefinition Height="2*"/>
                             </Grid.RowDefinitions>
-                            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Background="#C4C4C4" Orientation="Horizontal">
+                            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Background="#9a9a9a" Orientation="Horizontal">
                                 <Image HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 10" Stretch="Fill" Source="img/订单.png" Height="40" Width="50"/>
                                 <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-10,10,0,10" Foreground="White"  FontSize="36" FontWeight="Bold" Content="订单信息" />
                             </StackPanel>
-                            <Label Grid.Row="1" Grid.Column="0" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 " FontSize="36" FontWeight="Bold" Content="入住房间:" />
-                            <Label Grid.Row="1" Grid.Column="1" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10" FontSize="36" FontWeight="Bold" Content="" x:Name="checkRoom"/>
-                            <Label Grid.Row="2" Grid.Column="0" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10 " FontSize="36" FontWeight="Bold" Content="入住时间:" />
-                            <Label Grid.Row="2" Grid.Column="1" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10" FontSize="36" FontWeight="Bold" Content="" x:Name="checkTime"/>
-                            <Label Grid.Row="3" Grid.Column="1" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10" FontSize="28" Content="(最晚当天下午14：00入住)" />
-                            <Label Grid.Row="4" Grid.Column="0" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10" FontSize="36" FontWeight="Bold" Content="离开时间:" />
-                            <Label Grid.Row="4" Grid.Column="1" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10" FontSize="36" FontWeight="Bold" Content="" x:Name="leftTime"/>
-                            <Label Grid.Row="5" Grid.Column="1" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10" FontSize="28" Content="(最晚当天下午13：00离开)" />
-                            <Label Grid.Row="6" Grid.Column="0" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10" FontSize="36" FontWeight="Bold" Content="详细地址:" />
-                            <Label Grid.Row="6" Grid.Column="1" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10" FontSize="36" FontWeight="Bold" Content="xxxx" x:Name="address"/>
-                        </Grid>
+                            <Label Grid.Row="1" Grid.Column="0" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,30,0,10" FontSize="36" FontWeight="Bold" Content="入住房间:" />
+                            <Label Grid.Row="1" Grid.Column="1" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,30,0,10" FontSize="36" FontWeight="Bold" Content="" x:Name="checkRoom"/>
+                            <Label Grid.Row="2" Grid.Column="0" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,0,0 " FontSize="36" FontWeight="Bold" Content="入住时间:" />
+                            <Label Grid.Row="2" Grid.Column="1" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,0,0" FontSize="36" FontWeight="Bold" Content="" x:Name="checkTime"/>
+                            <Label Grid.Row="3" Grid.Column="1" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,10" FontSize="28" Content="(最晚当天下午14：00入住)" />
+                            <Label Grid.Row="4" Grid.Column="0" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,0,0" FontSize="36" FontWeight="Bold" Content="离开时间:" />
+                            <Label Grid.Row="4" Grid.Column="1" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 10,0,0" FontSize="36" FontWeight="Bold" Content="" x:Name="leftTime"/>
+                            <Label Grid.Row="5" Grid.Column="1" Foreground="Black"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,40" FontSize="28" Content="(最晚当天下午13：00离开)" />
+                         </Grid>
                     </StackPanel>
                 </Border>
             </Grid>

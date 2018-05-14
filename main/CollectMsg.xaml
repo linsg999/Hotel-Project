@@ -13,7 +13,7 @@
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="8*" />
             </Grid.RowDefinitions>
-            <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="img/身份验证背景.png"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="UniformToFill"  />
+            <Image Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="img/身份验证背景.png"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="UniformToFill"  />
             <Image x:Name="ggImg" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Stretch="Fill"  Source="img/左广告图.jpg" />
             <Grid Grid.Column="0" Grid.Row="0">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 30">
@@ -47,7 +47,7 @@
                             <RowDefinition Height="3*" />
                             <RowDefinition Height="2*"/>
                         </Grid.RowDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Foreground="White" Content="正在核实身份...." FontSize="36" FontWeight="Bold" />
+                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Foreground="White" Content="正在核实身份...." FontSize="36" FontWeight="Bold" Margin="0,0,0,30"/>
                         <Border Grid.Row="1" Grid.Column="0"  BorderBrush="White" BorderThickness="2" CornerRadius="5" Height="400" Width="350" >
                             <Image x:Name="idImg" Stretch="Fill"/>
                         </Border>

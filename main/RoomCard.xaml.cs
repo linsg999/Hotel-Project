@@ -25,7 +25,7 @@ namespace main
     {
         private DispatcherTimer dateTimer;//获取系统时间的定时器
         private DispatcherTimer ggTimer;//广告定时器
-        private int ggInterval = 5;//广告轮播时间
+        private int ggInterval = 3;//广告轮播时间
         private int index = 0;//轮播的index
         private string ggFolder = "../../DoorCard_img/";
         private void Window_Loaded(object sender, RoutedEventArgs e)

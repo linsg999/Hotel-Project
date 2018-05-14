@@ -39,7 +39,7 @@ namespace main
         private string message = "";//提示信息
 
         private DispatcherTimer ggTimer;//广告定时器
-        private int ggInterval = 5;//广告轮播时间
+        private int ggInterval = 3;//广告轮播时间
         private int index = 0;//轮播的index
         private string ggFolder = "../../PhoneReco_img/";
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -117,7 +117,7 @@ namespace main
         //点击修改号码 恢复到默认
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            phoneNumLb.Text = "   请输入手机号";
+            phoneNumLb.Text = "     请输入手机号";
             phoneNumLb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bfbebe")); 
             phoneNum = "";
             phoneText.Text = phoneNum;
@@ -125,7 +125,7 @@ namespace main
             disTimer2.Stop();
             time.Content = "";
 
-            psdBlock.Text = "   请输入【" + psdMsg + "】编号的验证码";
+            psdBlock.Text = "     请输入【" + psdMsg + "】编号的验证码";
             VerifiCode = "";
             psdText.Text = VerifiCode;
             phoneText.Focusable = true;
@@ -154,7 +154,7 @@ namespace main
             retrySendBtn.Visibility = Visibility.Collapsed;
             retrySendBtn2.Visibility = Visibility.Visible;
 
-            psdBlock.Text = "   请输入【" + psdMsg + "】编号的验证码";
+            psdBlock.Text = "     请输入【" + psdMsg + "】编号的验证码";
             psdMsg2.Visibility = Visibility.Hidden;
             VerifiCode = "";
             psdText.Text = VerifiCode;
@@ -248,7 +248,7 @@ namespace main
                     string num = buttonName.Substring(buttonName.Length - 1, 1);
                     phoneNum = phoneNum + num;
                 }
-                this.phoneNumLb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff"));
+                this.phoneNumLb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bfbebe"));
                 phoneText.Text = phoneNum;
                 phoneText.SelectionStart = phoneText.Text.Length;
                 //判断手机号是否为11位 输入验证码
@@ -282,7 +282,7 @@ namespace main
                     msg.Visibility = Visibility.Visible;
                     psdLabel.Visibility = Visibility.Visible;
                     psdText.Visibility = Visibility.Visible;
-                    psdBlock.Text = "   请输入【" + psdMsg + "】编号的验证码";
+                    psdBlock.Text = "     请输入【" + psdMsg + "】编号的验证码";
                     psdBlock.Visibility = Visibility.Visible;
                     phoneText.Focusable = false;
                     psdText.Focus();
